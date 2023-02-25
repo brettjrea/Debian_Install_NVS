@@ -11,9 +11,9 @@ Install NVM and NPM LTS on Debian/Ubuntu with Curl and Bash script.
 sudo apt upgrade -y && sudo apt update -y && sudo apt autoremove -y &&
 sudo apt install wget &&
 sudo apt-get install --reinstall ca-certificates -y &&
-wget https://raw.githubusercontent.com/brettjrea/Debian_Install_NVM/main/install-nvm.sh &&
-chmod +x install-nvm.sh &&
-./install-nvm.sh &&
+wget https://raw.githubusercontent.com/brettjrea/Debian_Install_NVS/main/install-nvs.sh &&
+chmod +x install-nvs.sh &&
+./install-nvs.sh &&
 sudo apt autoremove -y &&
 sudo apt clean -y
 ```
@@ -27,20 +27,18 @@ sudo apt upgrade -y &&
 sudo apt autoremove -y && 
 sudo apt-get install --reinstall ca-certificates -y && 
 sudo apt install curl -y && 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && 
-export NVM_DIR="$HOME/.nvm" && 
-[ -s "$NVM_DIR/nvm.sh" ] && 
-. "$NVM_DIR/nvm.sh" && 
-[ -s "$NVM_DIR/bash_completion" ] && 
-. "$NVM_DIR/bash_completion" && 
-nvm install --lts && 
-echo "export NVM_DIR="$HOME/.nvm"" >> ~/.bashrc && 
-echo "[ -s "$NVM_DIR/nvm.sh" ] && 
-\. "$NVM_DIR/nvm.sh"" >> ~/.bashrc && 
-echo "[ -s "$NVM_DIR/bash_completion" ] && 
-\. "$NVM_DIR/bash_completion"" >> ~/.bashrc && 
-echo "export PATH="$NVM_DIR/versions/node/$(nvm version)/bin:$PATH"" >> ~/.bashrc && 
+curl -o- https://raw.githubusercontent.com/jasongin/nvs/master/install.sh | bash && 
+export NVS_HOME="$HOME/.nvs" && 
+[ -s "$NVS_HOME/nvs.sh" ] && 
+. "$NVS_HOME/nvs.sh" && 
+nvs add lts && 
+nvs use lts && 
+echo "export NVS_HOME="$HOME/.nvs"" >> ~/.bashrc && 
+echo "[ -s "$NVS_HOME/nvs.sh" ] && 
+. "$NVS_HOME/nvs.sh"" >> ~/.bashrc && 
+echo "nvs use lts" >> ~/.bashrc && 
 exec bash
+
 ```
 
 ---
