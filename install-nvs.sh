@@ -1,25 +1,29 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-set -eux
+# update and upgrade packages
+sudo apt update -y && sudo apt upgrade -y
 
-NVS_HOME=${NVS_HOME:-"/usr/local/nvs"}
+# remove unused packages
+sudo apt autoremove -y
 
-# Install Git
-apt-get update
-apt-get install -y git
+# install curl
+sudo apt install curl -y
 
-# Clone the NVS repository
-git clone https://github.com/jasongin/nvs.git ${NVS_HOME}
-
-# Run the NVS installation script
-bash ${NVS_HOME}/nvs.sh install
-
-# Add NVS to shell startup file
-echo "export NVS_HOME=${NVS_HOME}" >> ~/.bashrc
-echo "[ -s \"\$NVS_HOME/nvs.sh\" ] && . \"\$NVS_HOME/nvs.sh\"" >> ~/.bashrc
-
-# Load NVS into the current shell
-export NVS_HOME=${NVS_HOME}
+# install NVS
+git clone https://github.com/jasongin/nvs ~/.nvs
+echo 'export NVS_HOME="$HOME/.nvs"' >> ~/.bashrc
+echo '[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"  # This loads NVS' >> ~/.bashrc
+export NVS_HOME="$HOME/.nvs"
 [ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
 
-echo "Node Version Switcher has been installed!"
+# install latest LTS version of Node.js
+nvs add lts
+nvs use lts
+
+# Add NVS and Node to the PATH environment variable
+echo 'export NVS_HOME="$HOME/.nvs"' >> ~/.bashrc
+echo '[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"  # This loads NVS' >> ~/.bashrc
+echo 'export PATH="$NVS_HOME/$(nvs which latest)":$PATH' >> ~/.bashrc
+
+# Reload the shell to apply the PATH changes
+exec bash
