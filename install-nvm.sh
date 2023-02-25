@@ -1,31 +1,25 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# update and upgrade packages
-sudo apt update -y && sudo apt upgrade -y
+set -eux
 
-# remove unused packages
-sudo apt autoremove -y
+NVS_HOME=${NVS_HOME:-"/usr/local/nvs"}
 
-# install curl
-sudo apt install curl -y
+# Install Git
+apt-get update
+apt-get install -y git
 
-# install nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+# Clone the NVS repository
+git clone https://github.com/jasongin/nvs.git ${NVS_HOME}
 
-# set environment variables
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# Run the NVS installation script
+bash ${NVS_HOME}/nvs.sh install
 
-# install latest LTS version of Node.js
-nvm install --lts
+# Add NVS to shell startup file
+echo "export NVS_HOME=${NVS_HOME}" >> ~/.bashrc
+echo "[ -s \"\$NVS_HOME/nvs.sh\" ] && . \"\$NVS_HOME/nvs.sh\"" >> ~/.bashrc
 
-# Add nvm and node to the PATH environment variable
-echo "export NVM_DIR=\"\$HOME/.nvm\"" >> ~/.bashrc
-echo "[ -s \"\$NVM_DIR/nvm.sh\" ] && \\. \"\$NVM_DIR/nvm.sh\"" >> ~/.bashrc
-echo "[ -s \"\$NVM_DIR/bash_completion\" ] && \\. \"\$NVM_DIR/bash_completion\"" >> ~/.bashrc
-echo "export PATH=\"\$NVM_DIR/versions/node/\$(nvm version)/bin:\$PATH\"" >> ~/.bashrc
+# Load NVS into the current shell
+export NVS_HOME=${NVS_HOME}
+[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
 
-# Reload the shell to apply the PATH changes
-
-exec bash
+echo "Node Version Switcher has been installed!"
