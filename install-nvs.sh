@@ -10,7 +10,7 @@ sudo apt autoremove -y
 sudo apt install curl -y
 
 # install NVS
-git clone https://github.com/jasongin/nvs ~/.nvs
+git clone https://raw.githubusercontent.com/jasongin/nvs/master/install.sh ~/.nvs
 echo 'export NVS_HOME="$HOME/.nvs"' >> ~/.bashrc
 echo '[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"  # This loads NVS' >> ~/.bashrc
 export NVS_HOME="$HOME/.nvs"
