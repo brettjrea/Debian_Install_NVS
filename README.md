@@ -8,7 +8,7 @@ Install NVS and NPM LTS on Debian/Ubuntu with Curl and Bash script.
 
 ```
 sudo apt upgrade -y && sudo apt update -y && sudo apt autoremove -y &&
-sudo apt install wget -y &&
+sudo apt install wget git -y &&
 sudo apt-get install --reinstall ca-certificates -y &&
 wget https://raw.githubusercontent.com/brettjrea/Debian_Install_NVS/main/install-nvs.sh &&
 chmod +x install-nvs.sh &&
