@@ -25,7 +25,7 @@ sudo apt update -y &&
 sudo apt upgrade -y && 
 sudo apt autoremove -y && 
 sudo apt-get install --reinstall ca-certificates -y && 
-sudo apt install curl -y && 
+sudo apt install curl git -y && 
 curl -o- https://raw.githubusercontent.com/jasongin/nvs/master/install.sh | bash && 
 export NVS_HOME="$HOME/.nvs" && 
 [ -s "$NVS_HOME/nvs.sh" ] && 
@@ -63,7 +63,7 @@ This command reinstalls ca-certificates, which are used to authenticate SSL/TLS 
 ### Install Curl
 
 ```
-sudo apt install curl -y
+sudo apt install curl git -y
 ```
 
 This command installs Curl, which is used to transfer data from and to servers.
