@@ -18,8 +18,8 @@ export NVS_HOME="$HOME/.nvs"
 [ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
 
 # install latest version of Node.js
-nvs add latest
-nvs use latest 
+nvs add lts
+nvs use lts
 
 # Add NVS and Node to the PATH environment variable
 echo 'export NVS_HOME="$HOME/.nvs"' >> ~/.bashrc
