@@ -6,8 +6,7 @@ sudo apt update -y && sudo apt upgrade -y
 # remove unused packages
 sudo apt autoremove -y
 
-
-sudo apt install git curl -y
+sudo apt install git curl procps -y
 export NVS_HOME="$HOME/.nvs"
 git clone https://github.com/jasongin/nvs "$NVS_HOME"
 . "$NVS_HOME/nvs.sh" install
