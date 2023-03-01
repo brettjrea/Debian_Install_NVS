@@ -124,4 +124,4 @@ This command restarts the bashrc to apply the changes made in the previous comma
 
 ---
 
-*You might now want to [install Strapi.io](https://github.com/brettjrea/Debian_Strapi_Backend_API) backend*
+*You should now [Install common build tools.](https://github.com/brettjrea/Debian_Install_Common_Build_Tools)*
