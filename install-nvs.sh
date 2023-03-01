@@ -7,7 +7,7 @@ sudo apt update -y && sudo apt upgrade -y
 sudo apt autoremove -y
 
 
-sudo apt install git -y
+sudo apt install git curl -y
 export NVS_HOME="$HOME/.nvs"
 git clone https://github.com/jasongin/nvs "$NVS_HOME"
 . "$NVS_HOME/nvs.sh" install
