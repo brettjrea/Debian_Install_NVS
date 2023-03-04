@@ -1,9 +1,22 @@
 # Debian_Install_NVS
 
-* You might have [Upgraded to Buster](https://github.com/brettjrea/Debian_Bullseye_Upgrade_Script)
+*Optional:*
+* [Upgrade Debian Bullseye to Buster](https://github.com/brettjrea/Debian_Bullseye_Upgrade_Script)
+* [Upgrade Ubuntu Focal to Jammy](https://github.com/brettjrea/Ubuntu_Jammy_Upgrade_Script)
+---
+*You will need node.*
 
-* You might have [Upgraded to Jammy](https://github.com/brettjrea/Ubuntu_Jammy_Upgrade_Script)
+* [Install NVM](https://github.com/brettjrea/Debian_Install_NVM)
+* [Install NVS](https://github.com/brettjrea/Debian_Install_NVS)
+*Added 02/23 it is a cross-platform node based successor/replacement for NVM.*
+---
+*You will need these build tools.*
 
+*[Install common build tools.](https://github.com/brettjrea/Debian_Install_Common_Build_Tools)*
+___
+*[Install Strapi.io backend](https://github.com/brettjrea/Debian_Strapi_Backend_API)*
+___
+*[Install Gatsby frontend](https://github.com/brettjrea/Gatsby_Typescript_Styled_Components)*
 ---
 
 Install NVS and NPM LTS on Debian/Ubuntu with Curl and Bash script.
@@ -47,7 +60,8 @@ exec bash
 ```
 
 ---
-### Update and Upgrade System
+<details>
+<summary>Update and Upgrade System</summary>
 
 ```
 sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y
@@ -131,3 +145,4 @@ This command restarts the bashrc to apply the changes made in the previous comma
 ---
 
 *You should now [Install common build tools.](https://github.com/brettjrea/Debian_Install_Common_Build_Tools)*
+<details>
