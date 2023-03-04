@@ -16,7 +16,9 @@
 ___
 *[Install Strapi.io backend](https://github.com/brettjrea/Debian_Strapi_Backend_API)*
 ___
+
 *[Install Gatsby frontend](https://github.com/brettjrea/Gatsby_Typescript_Styled_Components)*
+
 ---
 
 Install NVS and NPM LTS on Debian/Ubuntu with Curl and Bash script.
