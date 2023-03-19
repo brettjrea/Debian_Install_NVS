@@ -20,7 +20,7 @@ jobs:
           toc=$(curl -sS https://raw.githubusercontent.com/brettjrea/GitHub_Generate_Readme/main/readme/generate-readme-table-of-contents.md)
           config=$(curl -sS https://raw.githubusercontent.com/brettjrea/GitHub_Generate_Readme/main/readme/debian-install-nvs.md)
           readme="$(echo -e "${toc}\n---\n${config}")"
-          echo "${readme}" > README.md
+          echo "${readme}" > readme.md
 
       - name: Auto commit
         uses: stefanzweifel/git-auto-commit-action@v4
