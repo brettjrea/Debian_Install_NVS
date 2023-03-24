@@ -13,8 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
+      - name: Copy install-tools.sh
+        run: |
+          curl -sS https://raw.githubusercontent.com/brettjrea/GitHub_Generate_Readme/main/bash/install-nvs.sh --output install-nvs.sh
+       
       - name: Combine files
         run: |
           toc=$(curl -sS https://raw.githubusercontent.com/brettjrea/GitHub_Generate_Readme/main/readme/generate-readme-table-of-contents.md)
